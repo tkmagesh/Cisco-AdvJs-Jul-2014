@@ -37,6 +37,7 @@ isPrime(10);
 var isPrime = (function(){
 	var cache = {};
 	return function isPrime(n){
+		console.log(cache);
 		if (typeof cache[n] !== "undefined"){
 			console.log("from cache...");
 			return cache[n];
