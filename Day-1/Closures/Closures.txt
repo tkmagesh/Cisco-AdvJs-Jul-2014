@@ -1,0 +1,53 @@
+Create a html page that has a button "Track" and a div
+Whenever the button "Track" is clicked, the div should display the number of times the button is clicked
+
+
+create an object "spinner" .... (how you create the object?)
+
+spinner.up(); //=> 1
+spinner.up(); //=> 2
+spinner.up(); //=> 3
+spinner.up(); //=> 4
+
+spinner.down(); //=> 3
+spinner.down(); //=> 2
+spinner.down(); //=> 1
+spinner.down(); //=> 0
+spinner.down(); //=> -1
+
+function getSpinner(){
+	var counter = 0;
+	function increment(){
+		return ++counter;
+	}
+	function decrement(){
+		return --counter;
+	}
+	return{
+		up : increment,
+		down : decrement
+	}
+}
+
+write a function that will check whether the given number is a prime number or not. The function should be written in such a way that if the algorith for checking the number is prime or not should not be run once again for the same number.
+
+isPrime(10);
+isPrime(10);
+
+var isPrime = (function(){
+	var cache = {};
+	return function isPrime(n){
+		if (typeof cache[n] !== "undefined"){
+			console.log("from cache...");
+			return cache[n];
+		}
+		cache[n] = true;
+		for(var i=2;i<=(n/2);i++)
+			if (n % i === 0){
+				cache[n] = false;
+				break;
+			}
+		console.log("juz processed...");
+		return cache[n];
+	}
+})();
