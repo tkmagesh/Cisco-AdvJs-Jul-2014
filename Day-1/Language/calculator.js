@@ -1,3 +1,8 @@
 function add(x,y){
-	return parseInt(x,10) + parseInt(y,10);
+	function parseArg(n){
+		if (n instanceof Array) return add.apply(undefined,n)
+		if (typeof n === "function") return parseArg(n());
+		return isNaN(n) ? 0 : parseInt(n,10);
+	}
+	return arguments.length <= 1 ? parseArg(arguments[0]) : parseArg(arguments[0]) + add([].slice.call(arguments,1));
 }
