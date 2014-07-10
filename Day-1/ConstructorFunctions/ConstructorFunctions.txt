@@ -5,3 +5,41 @@ function Employee(id,name,salary){
    this.name = name;
    this.salary = salary;
 }
+
+convert the id, name and salary to accessor methods exhibiting the following behavior
+
+id -> readonly
+name -> cannot be assigned an empty string
+salary -> cannot be less than the current salary
+
+function Employee(id,name,salary){
+	var _id = id,
+		_name = name,
+		_salary = salary;
+
+	this.id = function(){
+		return _id;
+
+	};
+	this.name = function(val){
+		if (typeof val === "undefined") return _name;
+		if (val !== "") _name = val;
+	};
+	this.salary = function(val){
+		if (typeof val === "undefined") return _salary;
+		if (_salary < val) _salary = val;
+	}
+}
+
+Create a Salary Calculator that takes the following: basic, hra, da, tax.  The calculator exhibits a "calculate"  method that populates the "salary" attribute with the calculatd salary
+
+function SalaryCalculator(/*fill in the blanks*/){
+	/*fill in the blanks */
+}
+
+var calc = new SalaryCalculator(10000,2000,3000,10);
+calc.salary //=> 0
+calc.calculate();
+calc.salary //=> 13500
+calc => {basic : 10000, hra : 2000, da : 3000, tax :10, salary : 13500, calculate : function(){..}}
+
