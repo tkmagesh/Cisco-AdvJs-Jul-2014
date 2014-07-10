@@ -21,7 +21,7 @@
 	<script src="SalaryCalculatorView.js"></script>
 	<script>
 	
-	$(function(){
+	window.addEventListener("DOMContentLoaded", function(){
 		var calculator = new SalaryCalculator();
 		var calculatorView = new SalaryCalculatorView(calculator);
 		calculatorView.initialize();
