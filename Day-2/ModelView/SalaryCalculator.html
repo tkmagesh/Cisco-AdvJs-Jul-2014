@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Salary Calculator</title>
+	<style>
+	label{
+		display : block;
+		width: 75px;
+		float : left;
+	}
+	div{
+		margin: 10px;
+	}
+	#divResult{
+		font-size: 28pt;
+	}
+	</style>
+	<script src="jquery-1.11.1.js"></script>
+	<script src="salaryCalculator.js"></script>
+	<script src="SalaryCalculatorView.js"></script>
+	<script>
+	
+	$(function(){
+		var calculator = new SalaryCalculator();
+		var calculatorView = new SalaryCalculatorView(calculator);
+		calculatorView.initialize();
+		calculatorView.render().$root.appendTo(document.body);
+	});
+	</script>
+	<script type="text/template" id="calculatorTemplate">
+	<div>
+		<div><label for="">Basic :</label><input type="text" name="" id="txtBasic"></div>
+		<div><label for="">HRA :</label><input type="text" name="" id="txtHra"></div>
+		<div><label for="">DA :</label><input type="text" name="" id="txtDa"></div>
+		<div>
+			<label for="">Tax :</label>
+			<input type="range" name="" id="rangeTax" min="0" max="50" value="0">
+			<span id="spanTax">[Tax%]</span>
+		</div>
+		<div><input type="button" value="Calculate" id="btnCalculate"></div>
+		<div>
+			<div id="divResult">[Salary]</div>
+		</div>
+	</div>
+	</script>
+</head>
+<body>
+	<h1>Salary Calculator</h1>
+	<hr>
+	
+</body>
+</html>
